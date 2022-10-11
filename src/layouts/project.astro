@@ -6,7 +6,7 @@ import Nav from "../components/Nav.astro";
 const { content } = Astro.props;
 ---
 
-<html lang={content.lang || "en"}>
+<html lang={content.lang || "en"} class="overflow-x-hidden">
     <head>
         <MainHead
             title={`${content.title} | Cosmic`}
@@ -40,7 +40,9 @@ const { content } = Astro.props;
             }
         </style>
     </head>
-    <body class="min-h-screen inset-0 relative bg-gradient text-white">
+    <body
+        class="min-h-screen inset-0 relative bg-gradient text-white overflow-x-hidden"
+    >
         <Nav />
         <div class="starfield absolute inset-0"></div>
         <header
@@ -49,7 +51,7 @@ const { content } = Astro.props;
         >
             <a href={content.goto} target="_blank">
                 <h1
-                    class="text-8xl uppercase [text-shadow:_0px_0px_25px_#000] text-white underline hover:text-[#7a87ff] transition-all ease-linear font-black tracking-[0.0625em]"
+                    class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase [text-shadow:_0px_0px_25px_#000] text-white underline hover:text-[#7a87ff] transition-all ease-linear font-black tracking-[0.0625em]"
                 >
                     {content.title}
                 </h1>

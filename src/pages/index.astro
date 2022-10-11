@@ -1,0 +1,80 @@
+---
+import { Sprite } from "astro-icon";
+
+// Component Imports
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+
+// Data Fetching: List all Markdown posts in the repo.
+const projects = await Astro.glob("./project/**/*.md");
+const featuredProject = projects[0];
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en" class="overflow-hidden">
+    <head>
+        <MainHead
+            title="Cosmic's Website"
+            description="Cosmic, Web Developer, Minecraft Modder and more!"
+        />
+        <style>
+            .starfield {
+                background-image: url(/assets/stars.png);
+                background-repeat: repeat;
+                mask-image: url(/assets/stars-mask.webp);
+                mask-repeat: repeat;
+                z-index: -99;
+            }
+
+            .bg-gradient {
+                background: linear-gradient(-45deg, #1a2138, #11121b);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen inset-0 relative bg-gradient text-white overflow-hidden"
+    >
+        <Nav />
+        <div class="starfield absolute inset-0"></div>
+
+        <header
+            class="min-h-full mt-[65%] sm:mt-[40%] lg:mt-[25%] xl:mt-[15%] relative mb-[45vh]"
+        >
+            <div
+                class="absolute top-0 bottom-0 left-0 w-full h-full flex flex-col justify-center pl-8 z-10"
+            >
+                <h1 class="font-black text-6xl mb-2 mt-0 sm:text-8xl">
+                    <small
+                        class="block font-[400] text-2xl sm:text-4xl tracking-[-0.0625em]"
+                        >Hey I'm</small
+                    ><span class="text-[#7a87ff]">Cosmic</span>
+                </h1>
+                <div class="flex flex-wrap gap-2 text-2xl text-center">
+                    <Sprite.Provider>
+                        <span
+                            class="relative inline-block whitespace-nowrap justify-center font-black text-white bg-[#05091e] py-1 px-2"
+                            ><Sprite
+                                name="ant-design:code-filled"
+                                class="w-8 h-8 p-0 m-0 inline text-white"
+                            /> Web Developer</span
+                        >
+                        <span
+                            class="relative inline-block whitespace-nowrap justify-center font-black text-white bg-[#05091e] py-1 px-2"
+                            ><Sprite
+                                name="eva:cube-fill"
+                                class="w-8 h-8 p-0 m-0 inline text-white"
+                            /> Minecraft Modder
+                        </span>
+                    </Sprite.Provider>
+                </div>
+            </div>
+        </header>
+        <Footer />
+    </body>
+</html>

@@ -1,0 +1,53 @@
+---
+import MainHead from "../components/MainHead.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+
+const projects = (await Astro.glob("./project/**/*.md"))
+    .filter(({ frontmatter }) => !!frontmatter.date)
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.date).valueOf() -
+            new Date(a.frontmatter.date).valueOf()
+    );
+---
+
+<html lang="en">
+    <head>
+        <MainHead
+            title="Projects | Cosmic"
+            description="Learn about my projects"
+        />
+        <style>
+            .starfield {
+                background-image: url(/assets/stars.png);
+                background-repeat: repeat;
+                mask-image: url(/assets/stars-mask.webp);
+                mask-repeat: repeat;
+                z-index: -99;
+            }
+
+            .bg-gradient {
+                background: linear-gradient(-45deg, #1a2138, #11121b);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen inset-0 relative bg-gradient text-white">
+        <Nav />
+        <div class="starfield absolute inset-0"></div>
+        <div class="max-w-[80em] mx-auto px-8">
+            <h1 class="my-8">All My Projects</h1>
+            <div class="grid gap-12">
+                {
+                    projects.map((project) => (
+                        <PortfolioPreview project={project} />
+                    ))
+                }
+            </div>
+        </div>
+        <Footer />
+    </body>
+</html>

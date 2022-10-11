@@ -1,0 +1,102 @@
+---
+import { Sprite } from "astro-icon";
+
+import axios from "axios";
+const req = await axios.get(
+    "https://api.lanyard.rest/v1/users/508662064063971348"
+);
+const avatarURL = `https://cdn.discordapp.com/avatars/508662064063971348/${req.data.data.discord_user.avatar}.png?size=4096`;
+---
+
+<nav class="z-100">
+    <a
+        class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
+        href="/"
+    >
+        <img
+            src={avatarURL}
+            class="rounded-full w-16 hover:shadow-[0px_0px_25px_#444fb9] transition-all ease-linear border-4 p-[0.2rem] border-[#7a87ff]"
+        />
+    </a>
+    <a
+        class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
+        href="/projects/">Projects</a
+    >
+    <a
+        class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
+        href="/about/"
+    >
+        About</a
+    >
+    <div class="socials">
+        <Sprite.Provider>
+            <a
+                class="social"
+                href="https://twitter.com/cosrnic_"
+                target="_blank"
+            >
+                <Sprite
+                    class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
+                    name="akar-icons:twitter-fill"
+                />
+            </a>
+            <a class="social" href="https://github.com/cosrnic" target="_blank">
+                <Sprite
+                    class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
+                    name="akar-icons:github-fill"
+                />
+            </a>
+            <a class="social" href="https://card.cosrnic.uk" target="_blank">
+                <Sprite
+                    class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
+                    name="akar-icons:discord-fill"
+                />
+            </a>
+        </Sprite.Provider>
+    </div>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .monogram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2em;
+        height: 2em;
+        margin-right: 0.5rem;
+        color: var(--c-white);
+        font-weight: 900;
+        letter-spacing: -0.125rem;
+        border: 3px solid currentColor;
+        border-radius: 50%;
+    }
+
+    .socials {
+        display: flex;
+        gap: 0.75em;
+        margin-left: auto;
+    }
+
+    .social {
+        display: block;
+    }
+
+    .socialIcon {
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+        fill: var(--t-subdue);
+        transition: fill linear 150ms;
+    }
+
+    .socialIcon:hover {
+        fill: var(--t-active);
+    }
+</style>

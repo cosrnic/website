@@ -1,0 +1,85 @@
+---
+import MainHead from "../components/MainHead.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+
+const { content } = Astro.props;
+---
+
+<html lang={content.lang || "en"}>
+    <head>
+        <MainHead
+            title={`${content.title} | Cosmic`}
+            description={content.description}
+        />
+        <style>
+            .tag:nth-of-type(1n) {
+                color: var(--c-green);
+            }
+            .tag:nth-of-type(2n) {
+                color: var(--c-orange);
+            }
+            .tag:nth-of-type(3n) {
+                color: var(--c-blue);
+            }
+            .tag:nth-of-type(4n) {
+                color: var(--c-pink);
+            }
+            .starfield {
+                background-image: url(/assets/stars.png);
+                background-repeat: repeat;
+                mask-image: url(/assets/stars-mask.webp);
+                mask-repeat: repeat;
+                z-index: -99;
+            }
+
+            .bg-gradient {
+                background: linear-gradient(-45deg, #1a2138, #11121b);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen inset-0 relative bg-gradient text-white">
+        <Nav />
+        <div class="starfield absolute inset-0"></div>
+        <header
+            style={`background-image: url(${content.img})`}
+            class="p-32 flex bg-no-repeat bg-cover min-h-[25vw] text-white flex-col items-center justify-center"
+        >
+            <a href={content.goto} target="_blank">
+                <h1
+                    class="text-8xl uppercase [text-shadow:_0px_0px_25px_#000] text-white underline hover:text-[#7a87ff] transition-all ease-linear font-black tracking-[0.0625em]"
+                >
+                    {content.title}
+                </h1>
+            </a>
+        </header>
+        <div class="pt-8 bg-[#05091e]/60 text-white text-center pb-8">
+            <p>Date Created: {content.date}</p>
+            <div class="py-4">
+                {
+                    content.tags.map((t) => (
+                        <span class="tag mx-2 uppercase">{t}</span>
+                    ))
+                }
+                <h3 class="font-light leading-6 text-2xl">
+                    {content.description}
+                </h3>
+            </div>
+        </div>
+        <div class="py-8">
+            <div class="text-lg leading-[2.2] max-w-[50em] m-auto">
+                <slot />
+            </div>
+        </div>
+        <footer class="text-center mt-12">
+            <a
+                href="/projects"
+                class="border-4 p-2 text-center text-white border-white uppercase text-2xl font-semibold rounded-xl hover:shadow-[0px_0px_15px_#444fb9] transition-all ease-linear hover:text-[#7a87ff] hover:border-[#7a87ff]"
+                >View More</a
+            >
+        </footer>
+        <Footer />
+    </body>
+</html>

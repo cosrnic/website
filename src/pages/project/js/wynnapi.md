@@ -2,7 +2,7 @@
 layout: ../../../layouts/project.astro
 title: WynnAPI
 client: Self
-date: 11 October 2022
+date: 15 September 2022
 img: /assets/wynnapi.png
 description: |
   I created an API Wrapper for the Wynncraft API

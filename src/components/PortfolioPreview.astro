@@ -2,125 +2,53 @@
 const { frontmatter, url } = Astro.props.project;
 ---
 
-<div class="card">
-    <div class="titleCard" style={`background-image:url(${frontmatter.img})`}>
-        <h1 class="title">{frontmatter.title}</h1>
+<div
+    class="relative bg-[#05091e]/60 text-white border-[2px] border-white rounded-lg"
+>
+    <div
+        class="relative bg-cover pt-[37.5%] titleCard rounded-md"
+        style={`background-image:url(${frontmatter.img})`}
+    >
+        <div class="float-right p-2 mx-1">{frontmatter.date}</div>
+        <h1
+            class="absolute top-0 w-full h-full flex items-center justify-center m-0 text-white flex-col font-black text-6xl uppercase tracking-[0.0625em] [text-shadow:_0px_0px_25px_#000]"
+        >
+            {frontmatter.title}
+        </h1>
     </div>
-    <div class="descCard">
-        <p class="desc">{frontmatter.description}</p>
-        <div class="tags">
+    <div class="p-6">
+        <p class="text-lg leading-[1.4] mt-0 mb-[1em]">
+            {frontmatter.description}
+        </p>
+        <div class="text-sm uppercase">
             Tagged:
             {
                 frontmatter.tags.map((t) => (
-                    <div class="tag" data-tag={t}>
+                    <div
+                        class="inline-block uppercase ml-[0.5em] tag"
+                        data-tag={t}
+                    >
                         {t}
                     </div>
                 ))
             }
         </div>
-        <a class="link" href={url}>
-            <span class="linkInner">View</span>
+
+        <a
+            class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-2xl font-bold bg-black/25 opacity-0 uppercase no-underline transition-opacity ease-linear hover:opacity-100 focus:opacity-100 hover:translate-y-0 focus:translate-y-0"
+            href={url}
+        >
+            <span
+                class="py-[0.0375em] px-[1em] border-4 border-black/0 hover:border-white/60 hover:translate-y-0 focus:translate-y-0 translate-y-0 transition-transform duration-300 transition-colors ease-linear"
+                >View</span
+            >
         </a>
     </div>
 </div>
 
 <style>
-    .card {
-        position: relative;
-        color: var(--t-bg);
-        background: var(--t-fg);
-        border: 1px solid #f0f0f0;
-    }
-
-    .title {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        color: white;
-        flex-direction: column;
-        font-size: var(--f-u4);
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.0625em;
-    }
-
     .titleCard {
-        position: relative;
-        background-size: cover;
         background-position: 50% 100%;
-        padding-top: 37.5%;
-    }
-
-    .descCard {
-        padding: 1.5em;
-    }
-
-    .desc {
-        font-size: var(--f-u1);
-        line-height: 1.4;
-        margin-top: 0em;
-        margin-bottom: 1em;
-    }
-
-    .link {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--t-bg);
-        font-size: var(--f-u2);
-        font-weight: 700;
-        background: rgba(0, 0, 0, 0.25);
-        opacity: 0;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: opacity 150ms linear;
-    }
-
-    .link:focus,
-    .link:hover {
-        opacity: 1;
-    }
-
-    .link:focus,
-    .link:hover .linkInner {
-        transform: translateY(0);
-        border-color: rgba(255, 255, 255, 0.625);
-    }
-
-    .linkInner {
-        padding: 0.375em 1em;
-        border: 2px solid rgba(255, 255, 255, 0);
-        transition: transform 300ms cubic-bezier(0, 0.4, 0.6, 1),
-            border-color 1s linear;
-        transform: translateY(25%);
-    }
-
-    .nav {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .tags {
-        font-size: var(--f-d2);
-        text-transform: uppercase;
-    }
-
-    .tag {
-        display: inline-block;
-        color: var(--c-yellow);
-        text-transform: uppercase;
-        margin-left: 0.5em;
     }
 
     .tag:nth-of-type(1n) {
@@ -134,5 +62,8 @@ const { frontmatter, url } = Astro.props.project;
     }
     .tag:nth-of-type(4n) {
         color: var(--c-pink);
+    }
+    .tag:nth-of-type(5n) {
+        color: var(--c-yellow);
     }
 </style>

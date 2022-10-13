@@ -17,45 +17,60 @@ try {
 }
 ---
 
-<nav class="z-100">
+<nav class="z-100 flex gap-[1rem] items-center p-[1rem]">
     <a
         class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
         href="/"
+        aria-label="Home"
     >
         <img
             src={avatarURL}
             class="rounded-full w-16 hover:shadow-[0px_0px_25px_#444fb9] transition-all ease-linear border-4 p-[0.2rem] border-[#7a87ff]"
+            alt="logo"
         />
     </a>
     <a
         class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
-        href="/projects/">Projects</a
+        href="/projects/"
+        aria-label="Projects">Projects</a
     >
     <a
         class="block no-underline text-[20px] font-sans text-white hover:text-[#7a87ff] transition-all ease-linear"
         href="/about/"
+        aria-label="About"
     >
         About</a
     >
-    <div class="socials">
+    <div class="flex gap-[0.75em] ml-auto">
         <Sprite.Provider>
             <a
-                class="social"
+                class="block"
                 href="https://twitter.com/cosrnic_"
                 target="_blank"
+                aria-label="Twitter"
             >
                 <Sprite
                     class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
                     name="akar-icons:twitter-fill"
                 />
             </a>
-            <a class="social" href="https://github.com/cosrnic" target="_blank">
+            <a
+                class="block"
+                href="https://github.com/cosrnic"
+                target="_blank"
+                aria-label="Github"
+            >
                 <Sprite
                     class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
                     name="akar-icons:github-fill"
                 />
             </a>
-            <a class="social" href="https://card.cosrnic.uk" target="_blank">
+            <a
+                class="block"
+                href="https://card.cosrnic.uk"
+                target="_blank"
+                aria-label="Discord"
+            >
                 <Sprite
                     class="text-white block w-7 h-7 transition-all ease-linear hover:text-[#7a87ff]"
                     name="akar-icons:discord-fill"
@@ -64,48 +79,3 @@ try {
         </Sprite.Provider>
     </div>
 </nav>
-
-<style>
-    nav {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        padding: 1rem;
-    }
-
-    .monogram {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2em;
-        height: 2em;
-        margin-right: 0.5rem;
-        color: var(--c-white);
-        font-weight: 900;
-        letter-spacing: -0.125rem;
-        border: 3px solid currentColor;
-        border-radius: 50%;
-    }
-
-    .socials {
-        display: flex;
-        gap: 0.75em;
-        margin-left: auto;
-    }
-
-    .social {
-        display: block;
-    }
-
-    .socialIcon {
-        display: block;
-        width: 1.25rem;
-        height: 1.25rem;
-        fill: var(--t-subdue);
-        transition: fill linear 150ms;
-    }
-
-    .socialIcon:hover {
-        fill: var(--t-active);
-    }
-</style>

@@ -5,7 +5,7 @@ import axios from "axios";
 const req = await axios.get(
     "https://api.lanyard.rest/v1/users/508662064063971348"
 );
-const avatarURLTest = `https://cdn.discordapp.com/avatars/508662064063971348/${req.data.data.discord_user.avatar}.png?size=4096`;
+const avatarURLTest = `https://cdn.discordapp.com/avatars/508662064063971348/${req.data.data.discord_user.avatar}.png?size=4096`; // TODO: make it update each time
 let avatarURL;
 
 try {

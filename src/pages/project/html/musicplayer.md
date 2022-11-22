@@ -9,7 +9,7 @@ description: |
 tags:
   - Website
   - HTML
-goto: https://acatiadroid.github.io/music-player/
+goto: https://musicplayer.isgood.dev/
 ---
 
 Acatia's Music Player is a Python Music Player by acatiadroid.

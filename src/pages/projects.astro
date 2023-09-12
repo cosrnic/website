@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout title="cosrnic.dev/projects">
+	<main class="absolute mt-32 w-full p-2 md:p-4">
+		<div
+			class="grid grid-cols-1 grid-rows-5 gap-2 md:grid-cols-2 md:grid-rows-4 lg:grid-cols-3 lg:grid-rows-3"
+		>
+			<ProjectCard
+				title="cosrnic.dev"
+				iconUrl="/favicon.png"
+				description="This website!"
+				language="simple-icons:astro"
+				github="https://github.com/cosrnic/cosrnic.dev"
+			/>
+			<ProjectCard
+				title="links.cosrnic.dev"
+				iconUrl="/favicon.png"
+				description="My links website!"
+				language="simple-icons:astro"
+				github="https://github.com/cosrnic/links.cosrnic.dev"
+			/>
+			<ProjectCard
+				title="TwitchLink"
+				iconUrl="https://cdn-raw.modrinth.com/data/lAqEQe1s/52a368f0a58868a46b5b3e9a188487e2a4f756b7.png"
+				description="Link Twitch and Minecraft together!"
+				language="mdi:kotlin"
+				github="https://github.com/cosrnic/twitchlink"
+				modrinth="https://modrinth.com/mod/twitchlink"
+			/>
+			<ProjectCard
+				title="SmallViewModel"
+				iconUrl="https://cdn-raw.modrinth.com/data/NKxxmreJ/c129be55c37fdc7048b6b954c89835ebbc6b4555.png"
+				description="Change the position, rotation and scale of your view model!"
+				language="la:java"
+				github="https://github.com/cosrnic/smallviewmodel"
+				modrinth="https://modrinth.com/mod/smallviewmodel"
+			/>
+			<ProjectCard
+				title="Flipped"
+				iconUrl="https://cdn-raw.modrinth.com/data/EKVzoiVJ/icon.png"
+				description="flips your player upside down, similar to Dinnerbone's player."
+				language="la:java"
+				github="https://github.com/cosrnic/flipped"
+				modrinth="https://modrinth.com/mod/flipped"
+			/>
+			<ProjectCard
+				title="LuckPerms Pronouns"
+				iconUrl="/favicon.png"
+				description="A Minecraft Plugin that sets your LuckPerms Suffix to customisable pronouns."
+				language="la:java"
+				github="https://github.com/cosrnic/LPPronouns"
+			/>
+			<ProjectCard
+				title="Truffle Tetris Embed"
+				iconUrl="/favicon.png"
+				description="A Truffle Embed for playing teris."
+				language="mdi:language-typescript"
+				github="https://github.com/cosrnic/truffle-tetris-embed"
+			/>
+		</div>
+	</main>
+</Layout>

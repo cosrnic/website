@@ -1,0 +1,84 @@
+---
+import Astro from 'astro';
+import { Icon } from 'astro-icon';
+
+let navState = false;
+---
+
+<nav
+	class="fixed z-10 flex h-32 w-full items-center justify-between bg-dark-200 px-2 font-sans text-secondary ring-2 ring-inset ring-dark-100/70 md:px-4"
+>
+	<img src="/favicon.png" class="h-32 w-32 p-2" />
+	<div class="hidden flex-row gap-4 text-3xl font-bold uppercase md:flex">
+		<a
+			href="/"
+			class="transition-colors duration-200 ease-in-out hover:text-primary"
+			aria-current={Astro.url.pathname === '/' ? 'page' : null}>Home</a
+		>
+		<a
+			href="/projects"
+			class="transition-colors duration-200 ease-in-out hover:text-primary"
+			aria-current={Astro.url.pathname === '/projects' ? 'page' : null}
+			>Projects</a
+		>
+		<a
+			href="/guides"
+			class="transition-colors duration-200 ease-in-out hover:text-primary"
+			aria-current={Astro.url.pathname === '/guides' ? 'page' : null}>Guides</a
+		>
+	</div>
+
+	<a
+		href="https://links.cosrnic.dev"
+		class="hidden transition-colors duration-200 ease-in-out hover:text-primary md:block"
+		><Icon name="ic:round-link" width="72" /></a
+	>
+	<button
+		onclick="test()"
+		class="block transition-colors duration-200 ease-in-out hover:text-primary md:hidden"
+		><Icon name="ic:round-menu" width="72" /></button
+	>
+</nav>
+<div
+	class="chidden fixed z-[9] mt-32 flex h-screen w-screen flex-col gap-4 overflow-hidden bg-dark-100 p-8 text-4xl font-bold uppercase text-secondary transition-all duration-500 ease-in-out"
+	id="modal"
+>
+	<a
+		href="/"
+		class="group flex h-20 w-full items-center justify-center rounded-xl bg-dark-200 transition-all duration-200 ease-in-out hover:bg-dark-300 hover:text-primary"
+		aria-current={Astro.url.pathname === '/' ? 'page' : null}
+	>
+		Home
+	</a>
+	<a
+		href="/projects"
+		class="group flex h-20 w-full items-center justify-center rounded-xl bg-dark-200 transition-all duration-200 ease-in-out hover:bg-dark-300 hover:text-primary"
+		aria-current={Astro.url.pathname === '/projects' ? 'page' : null}
+	>
+		Projects
+	</a>
+	<a
+		href="/guides"
+		class="group flex h-20 w-full items-center justify-center rounded-xl bg-dark-200 transition-all duration-200 ease-in-out hover:bg-dark-300 hover:text-primary"
+		aria-current={Astro.url.pathname === '/guides' ? 'page' : null}
+	>
+		Guides
+	</a>
+</div>
+
+<script is:inline>
+	function test() {
+		const menuContainer = document.getElementById('modal');
+		menuContainer.classList.toggle('chidden');
+	}
+</script>
+
+<style lang="postcss">
+    [aria-current='page'] {
+        color: theme(colors.primary)
+    }
+
+    .chidden {
+        transform: translateY(-100dvh); 
+    }
+</style>

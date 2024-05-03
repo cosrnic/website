@@ -8,9 +8,11 @@ interface Props {
 	github?: string;
 	modrinth?: string;
 	language: string;
+	link?: string;
 }
 
-const { title, iconUrl, description, github, modrinth, language } = Astro.props;
+const { title, iconUrl, description, github, modrinth, language, link } =
+	Astro.props;
 ---
 
 <div
@@ -25,7 +27,7 @@ const { title, iconUrl, description, github, modrinth, language } = Astro.props;
 			<div
 				class="block h-24 w-24 rounded-xl bg-dark-100 md:h-36 md:w-36 lg:h-48 lg:w-48"
 			>
-				<img src={iconUrl} width="100%" height="100%" class="rounded-xl" />
+				<img src={iconUrl} class="mx-auto h-full w-auto rounded-xl" />
 			</div>
 			<p class="absolute ml-24 pl-2 md:ml-36 md:pl-4 lg:ml-48">{description}</p>
 		</div>
@@ -50,7 +52,7 @@ const { title, iconUrl, description, github, modrinth, language } = Astro.props;
 						</a>
 					</div>
 				) : (
-					<div />
+					<div class="fixed w-0" />
 				)
 			}
 			{
@@ -82,7 +84,21 @@ const { title, iconUrl, description, github, modrinth, language } = Astro.props;
 						</a>
 					</div>
 				) : (
-					<div />
+					<div class="fixed w-0" />
+				)
+			}
+			{
+				link ? (
+					<div class="h-10 w-10 rounded-xl bg-dark-100 p-1 md:h-16 md:w-16 lg:h-20 lg:w-20 ">
+						<a
+							href={link}
+							class="cursor-pointer transition-colors duration-200 ease-in-out hover:text-primary"
+						>
+							<Icon name="gridicons:external" />
+						</a>
+					</div>
+				) : (
+					<div class="fixed w-0" />
 				)
 			}
 		</div>

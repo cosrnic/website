@@ -1,51 +1,85 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { Book, Folder, House } from '@o7/icon/lucide';
+	import { onDestroy, onMount, type Component } from 'svelte';
 
-	const urls: {
-		name: string;
-		colour: string;
+	let links: {
+		path: string;
+		icon: Component;
+		text: string;
 	}[] = [
 		{
-			name: '/blog',
-			colour: 'ctp-peach',
+			path: '/',
+			icon: House,
+			text: 'Home',
 		},
 		{
-			name: '/projects',
-			colour: 'ctp-yellow',
+			path: '/projects',
+			icon: Folder,
+			text: 'Projects',
+		},
+		{
+			path: '/blog',
+			icon: Book,
+			text: 'Blog',
 		},
 	];
 
-	$: pathname = $page.url.pathname;
+	const textStyle = 'text-ctp-mauve';
+	const blurStyle = '[text-shadow:0px_0px_3px_currentColor]';
 
-	$: console.log(pathname);
+	let text = 'cosrnic';
+	let activeIndex = -1;
+	let interval: number | undefined = undefined;
 
-	const styles = 'transition-all duration-200 ease-in-out group';
-	const hoverStyles = `bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-300 ease-in-out`;
+	function changeColor(index: number) {
+		activeIndex = index;
+		console.log(activeIndex);
+		interval = setTimeout(() => {
+			activeIndex = -1;
+			changeColor((index + 1) % (text.length + links.length));
+		}, 1000);
+	}
+
+	onMount(() => {
+		changeColor(0);
+	});
+
+	onDestroy(() => {
+		clearInterval(interval);
+	});
 </script>
 
 <header
-	class="w-full h-8 items-center font-mono px-5 my-2 italic flex flex-row justify-between"
+	class="fixed bottom-0 lg:top-0 w-full h-16 lg:justify-between flex-row lg:flex-col lg:w-16 lg:h-full justify-center items-center flex py-6 [box-shadow:0px_0px_15px_#FFFFFF1E]"
 >
-	<a
-		href="/"
-		class={`${pathname == '/' ? 'text-ctp-red' : 'text-ctp-red/60'} hover:text-ctp-red/90 ${styles}`}
+	<div
+		class="font-mono text-xl items-center flex-col hidden lg:flex leading-none"
 	>
-		<span
-			class={`from-ctp-red to-ctp-red bg-left-bottom bg-gradient-to-r ${hoverStyles}`}
-			>cosrnic.dev</span
-		>
-	</a>
-
-	<div class="flex flex-row gap-5">
-		{#each urls as url}
-			<a
-				href={url.name}
-				class={`${pathname.startsWith(url.name) ? `text-${url.colour}` : `text-${url.colour}/60`} hover:text-${url.colour}/90 ${styles}`}
+		{#each text.split('') as char, index}
+			<span
+				class={`transition-all duration-200 ease-in-out ${activeIndex === index ? textStyle : 'text-ctp-blue'} ${blurStyle}`}
+				>{char}</span
 			>
+		{/each}
+	</div>
+	<div class="flex lg:flex-col gap-2">
+		{#each links as link, index}
+			<a
+				href={link.path}
+				class={`group relative flex items-center justify-center h-12 w-12 mx-auto cursor-pointer transition-all duration-200 ease-in-out
+				${
+					activeIndex - text.length === index ? textStyle : 'text-ctp-blue'
+				} active:text-ctp-mauve hover:text-ctp-mauve`}
+			>
+				<svelte:component
+					this={link.icon}
+					class={`[filter:drop-shadow(0px_0px_3px_currentColor)]`}
+				/>
 				<span
-					class={`to-${url.colour} from-${url.colour} bg-right-bottom bg-gradient-to-l ${hoverStyles}`}
-					>{url.name}</span
+					class={`absolute w-auto p-2 m-2 min-w-max bottom-14 lg:left-14 lg:bottom-0 scale-0 origin-bottom lg:origin-left group-hover:scale-100 group-hover:opacity-100 opacity-0 ${blurStyle} transition-all duration-200 ease-in-out`}
 				>
+					{link.text}
+				</span>
 			</a>
 		{/each}
 	</div>

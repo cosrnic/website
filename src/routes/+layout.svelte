@@ -4,9 +4,9 @@
 
 	import Header from '$lib/components/Header.svelte';
 	import '../app.css';
-	import Card from '$lib/components/Card.svelte';
 	import Music from '$lib/components/Music.svelte';
 	import Socials from '$lib/components/Socials.svelte';
+	import Credits from '$lib/components/Credits.svelte';
 </script>
 
 <Header />
@@ -18,6 +18,7 @@
 		<div class="flex flex-col gap-2 lg:fixed">
 			<Music />
 			<Socials />
+			<Credits />
 		</div>
 	</div>
 </div>

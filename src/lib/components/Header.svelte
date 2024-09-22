@@ -19,7 +19,9 @@
 	<div
 		class="flex flex-row items-center justify-between px-3 py-1.5 border-2 rounded-lg border-border backdrop-blur bg-black/5 text-xl tracking-wider font-display"
 	>
-		<p class="text-2xl">cosmic.🏴󠁧󠁢󠁷󠁬󠁳󠁿</p>
+		<p class="inline-flex text-2xl">
+			cosmic.<img src="favicon.png" alt="welsh flag" class="h-8" />
+		</p>
 		{#each tabs as tab}
 			<a
 				href={tab.href}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Song } from '$lib/music/music';
+	import type { Song } from '$lib/types';
 	import { Cursor } from '$lib/components/icons/index';
 	import { onDestroy, onMount } from 'svelte';
 	import Card from './Card.svelte';
@@ -69,7 +69,9 @@
 						<div
 							class="absolute flex items-end justify-end w-[7.25rem] h-[7.25rem]"
 						>
-							<div class="w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
+							<div
+								class="w-4 h-4 rounded-full bg-primary-foreground animate-ping"
+							></div>
 						</div>
 					{/if}
 					<img
@@ -87,7 +89,7 @@
 					/>
 				</div>
 			{/if}
-			<div class="flex flex-col text-muted-foreground">
+			<div class="flex flex-col text-muted-foreground max-w-[60%]">
 				{#if song}
 					<a
 						class="overflow-hidden text-lg font-semibold text-foreground whitespace-nowrap text-ellipsis hover:underline max-w-60"
@@ -159,7 +161,7 @@
 				<p>Times Played: {song.plays.length}</p>
 				<span class="text-sm">
 					Powered by <a
-						href="projects/note"
+						href="https://note.cosrnic.dev"
 						class="inline-flex transition-colors duration-200 ease-in-out text-accent-foreground hover:text-primary-foreground hover:underline group"
 						>Note
 						<div

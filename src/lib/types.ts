@@ -13,3 +13,9 @@ export type Song = {
 	plays: number[];
 	last_played: number;
 };
+
+export type Tech = {
+	name: string;
+	url: string;
+	time?: string;
+};

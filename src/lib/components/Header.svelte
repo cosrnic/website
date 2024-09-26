@@ -51,7 +51,7 @@
 			href="/"
 			class="inline-flex text-2xl transition-colors duration-200 ease-in-out hover:text-primary-foreground"
 		>
-			cosmic.<img src="favicon.png" alt="welsh flag" class="h-8" />
+			cosmic.<img src="/favicon.png" alt="welsh flag" class="h-8" />
 		</a>
 		<div class="flex flex-row items-center justify-center gap-1">
 			{#each links as tab}

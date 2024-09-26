@@ -1,3 +1,4 @@
+export { default as ArrowRight } from './ArrowRight.svelte';
 export { default as Braces } from './Braces.svelte';
 export { default as Bun } from './Bun.svelte';
 export { default as Copyright } from './Copyright.svelte';

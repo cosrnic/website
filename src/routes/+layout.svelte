@@ -89,5 +89,5 @@
 	href="https://github.com/cosrnic/website"
 	class="fixed flex flex-row items-center justify-center gap-1 text-sm tracking-wider transition-colors duration-200 ease-in-out bottom-1 right-1 text-muted-foreground font-display hover:underline hover:text-primary-foreground"
 >
-	<span><GitHub /></span>Source avaliable on GitHub</a
+	<span><GitHub /></span>Source available on GitHub</a
 >

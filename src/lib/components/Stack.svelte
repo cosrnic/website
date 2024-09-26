@@ -37,7 +37,6 @@
 				rel="noreferrer"
 				target="_blank"
 			>
-				<!-- <svelte:component this={link.icon} size={20} class="mt-1" /> -->
 				<img
 					src="https://i.postimg.cc/T1Wk3khh/logo.png"
 					class="w-5 mt-1"

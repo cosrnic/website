@@ -27,16 +27,16 @@
 			href: 'https://lu15.dev/',
 		},
 		{
-			name: 'cody',
-			href: 'https://codyq.dev/',
-		},
-		{
 			name: 'vpeak',
 			href: 'https://www.youtube.com/@vPeakVariety',
 		},
 		{
 			name: 'nimsy',
 			href: 'https://www.youtube.com/@nimsy',
+		},
+		{
+			name: 'zax',
+			href: 'https://github.com/zax71',
 		},
 	];
 </script>

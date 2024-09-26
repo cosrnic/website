@@ -248,7 +248,10 @@
 		<span class="text-xl font-semibold text-primary-foreground"
 			>Hello! I'm Cosmic</span
 		>
-		<span>I'm a {age} year old developer from Wales.</span>
+		<span
+			>I'm a <span title="This is nearly accurate!">{age}</span> year old developer
+			from Wales.</span
+		>
 	</p>
 
 	<div

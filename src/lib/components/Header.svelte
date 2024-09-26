@@ -1,6 +1,5 @@
 <script lang="ts">
 	import {
-		Copyright,
 		Discord,
 		GitHub,
 		Twitch,

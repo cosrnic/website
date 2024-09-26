@@ -1,10 +1,5 @@
 <script lang="ts">
-	import {
-		Cursor,
-		Javascript,
-		Go,
-		ArrowRight,
-	} from '$lib/components/icons/index';
+	import { Cursor, Javascript, Go } from '$lib/components/icons/index';
 	import Minecraft from '$lib/components/icons/Minecraft.svelte';
 	import LinkCard from '$lib/components/LinkCard.svelte';
 	import TechCard from '$lib/components/TechCard.svelte';

@@ -13,3 +13,4 @@ export { default as Tailwind } from './Tailwind.svelte';
 export { default as Twitch } from './Twitch.svelte';
 export { default as Twitter } from './Twitter.svelte';
 export { default as YouTube } from './YouTube.svelte';
+export { default as Bluesky } from './Bluesky.svelte';

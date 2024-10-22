@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Cursor, Javascript, Go } from '$lib/components/icons/index';
 	import Minecraft from '$lib/components/icons/Minecraft.svelte';
+	import Svelte from '$lib/components/icons/Svelte.svelte';
 	import LinkCard from '$lib/components/LinkCard.svelte';
 	import TechCard from '$lib/components/TechCard.svelte';
 	import type { Tech } from '$lib/types';
@@ -18,6 +19,14 @@
 				'<p>A <span class="text-[#ff0000]">YouTube Music</span> extension and <span class="text-[#5dc9e2]">go</span> API to broadcast what im listening to!</p>',
 			url: 'https://note.cosrnic.dev',
 			langs: [Go, Javascript],
+		},
+
+		{
+			title: 'SomethingComfort.ing',
+			description:
+				'<p>A <span class="text-primary-foreground">Website</span> dedicated to one of my favourite songs on <span class="text-primary-foreground">Porter Robinson</span>\'s <span class="text-primary-foreground">Nurture</span> album!</p>',
+			url: 'https://somethingcomfort.ing',
+			langs: [Javascript, Svelte],
 		},
 		{
 			title: 'BunnMC',

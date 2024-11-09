@@ -36,7 +36,7 @@
 
 			interval = setInterval(() => {
 				fetchSong();
-				refreshesIn = 16;
+				refreshesIn = 15;
 			}, 15_000);
 			refreshInterval = setInterval(() => {
 				refreshesIn--;

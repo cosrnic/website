@@ -70,7 +70,7 @@
 
 <Header />
 <div
-	class="flex flex-col md:flex-row px-2 lg:px-10 pt-[64px] gap-2 lg:gap-0 pb-6 md:pb-0"
+	class="flex flex-col md:flex-row px-2 lg:px-10 pt-[64px] gap-2 lg:gap-0 pb-6 md:pb-2"
 >
 	<div class="w-full lg:px-4">
 		{@render children()}

@@ -225,26 +225,6 @@
 			url: 'https://github.com/colinhacks/zod',
 		},
 	];
-
-	let interval: number | undefined;
-
-	let age = $state<string>('19.000000000');
-
-	let birthDate = new Date(1115201280000);
-
-	onMount(() => {
-		interval = setInterval(() => {
-			let time: number =
-				(new Date().getTime() - birthDate.getTime()) /
-				(1000 * 60 * 60 * 24 * 365.25);
-			let paddedTime = time.toFixed(9);
-			age = paddedTime.padStart(11, '0');
-		}, 50);
-	});
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
 </script>
 
 <div class="flex flex-col gap-2">
@@ -253,8 +233,10 @@
 			>Hello! I'm Cosmic</span
 		>
 		<span
-			>I'm a <span title="This is nearly accurate!">{age}</span> year old developer
-			from Wales.</span
+			>I'm a <span
+				title="this was automated but its kinda unneeded, now its just static"
+				>19</span
+			> year old developer from Wales.</span
 		>
 	</p>
 

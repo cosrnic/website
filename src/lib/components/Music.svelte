@@ -26,6 +26,9 @@
 	}
 
 	let interval: number | undefined;
+	let refreshInterval: number | undefined;
+
+	let refreshesIn = $state(15);
 
 	onMount(async () => {
 		if (PUBLIC_MUSIC_API_URL) {
@@ -33,16 +36,21 @@
 
 			interval = setInterval(() => {
 				fetchSong();
+				refreshesIn = 16;
 			}, 15_000);
+			refreshInterval = setInterval(() => {
+				refreshesIn--;
+			}, 1_000);
 		}
 	});
 
 	onDestroy(() => {
 		clearInterval(interval);
+		clearInterval(refreshInterval);
 	});
 </script>
 
-<Card>
+<Card class="relative {isRecent ? 'border-primary-foreground' : ''}">
 	{#if PUBLIC_MUSIC_API_URL}
 		<p class="mx-auto tracking-widest font-display">
 			{#if isRecent}
@@ -176,6 +184,9 @@
 	{:else}
 		<p>Music disabled.</p>
 	{/if}
+	<p class="absolute text-sm bottom-2 right-2 text-neutral-600">
+		Refreshes in {refreshesIn}s
+	</p>
 </Card>
 
 <style>

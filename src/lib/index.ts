@@ -40,8 +40,8 @@ export const socials: {
 		href: 'https://bsky.app/profile/cosmic.wales',
 	},
 	{
-		name: '@nottypesafe',
+		name: '@cosmicwales',
 		icon: Twitter,
-		href: 'https://twitter.com/nottypesafe',
+		href: 'https://twitter.com/cosmicwales',
 	},
 ];
